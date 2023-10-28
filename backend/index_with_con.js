@@ -13,7 +13,7 @@ const dishesByRestaurantId = require("./routes/dishesByRestaurantIdRoutes");
 app.use(express.json());
 
 mongoose
-  .connect("mongodb://localhost:27017/FoodDelivery")
+  .connect("mongodb+srv://pranays4299:ZqH50ZVpzUqTKgAa@cluster0.t8s5tyf.mongodb.net/?retryWrites=true&w=majority")
   .then(() => console.log("mongo connected"))
   .catch((err) => console.log(err));
 console.log("Connected to MongoDB");
