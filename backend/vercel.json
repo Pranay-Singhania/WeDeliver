@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "WeDeliver",
+    "name": "wedeliver",
     "builds": [
         {
             "src": "index.js",
