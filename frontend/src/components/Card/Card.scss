@@ -1,0 +1,17 @@
+@import "../../variables.scss";
+
+.card-section {
+  border-radius: 5px;
+  padding: 1rem 0;
+  border: 1px solid black;
+  width: fit-content;
+  margin: 2rem;
+  @include flex-center-center;
+  flex-direction: column;
+  .card-img {
+    text-align: center;
+    img {
+      height: 10rem;
+    }
+  }
+}

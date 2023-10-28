@@ -1,0 +1,40 @@
+@import "../../variables.scss";
+
+.globalFigures {
+  position: relative;
+  height: 30rem;
+  background-color: white;
+  &-container {
+    @include flex-center-center;
+    .statCounter {
+      width: 80%;
+      padding: 2.5rem;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 -4px 8px 0 rgba(0, 0, 0, 0.1), 4px 0 8px 0 rgba(0, 0, 0, 0.1), -4px 0 8px 0 rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      &-title {
+        font-size: 2rem;
+        font-family: $boldFont;
+        text-align: center;
+      }
+      .statCounter-subSections {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        .statCounter-header {
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          margin: 2rem 0;
+          svg,
+          img {
+            height: 8rem;
+          }
+          .countUp {
+            font-size: 2rem;
+            font-family: $boldFont;
+          }
+        }
+      }
+    }
+  }
+}

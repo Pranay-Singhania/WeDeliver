@@ -1,0 +1,65 @@
+@import "../../variables.scss";
+.itemCard-container {
+  height: 8rem;
+  // height: fit-content;
+  padding: 0.8rem;
+  border: 1px solid #b0b0b0;
+  border-radius: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  .itemCard-desc {
+    &-name {
+      font-family: $diffFont;
+    }
+    &-desc {
+      margin-top: 0.2rem;
+      font-size: 0.88rem;
+      color: #666666;
+    }
+    &-price {
+      margin-top: 0.2rem;
+    }
+  }
+  .itemCard-desc-img {
+    height: 100%;
+    position: relative;
+    img {
+      margin-left: 0.6rem;
+      border-radius: 5px;
+      height: 100%;
+      width: 8rem;
+    }
+    .itemCard-btn {
+      position: absolute;
+      bottom: 3px;
+      right: 3px;
+      border-radius: 2rem;
+      display: flex;
+      background-color: white;
+      // padding: 0.15rem 0;
+      @include flex-center-center;
+      .items {
+        font-size: 0.9rem;
+        margin: 0 0.3rem;
+      }
+      button {
+        border: none;
+        background-color: white;
+        border-radius: 50%;
+        // background-color: $neon;
+        padding: 0.2rem 0.25rem;
+        color: $neon;
+        span {
+          @include flex-center-center;
+          svg {
+            border-radius: 50%;
+            font-size: 1.2rem;
+          }
+        }
+      }
+      button:hover {
+        background-color: #f0f0f0;
+      }
+    }
+  }
+}

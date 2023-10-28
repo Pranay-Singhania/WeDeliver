@@ -1,0 +1,42 @@
+@import "../../variables.scss";
+
+.res-cont {
+  width: auto;
+  height: auto;
+  font-family: $primaryFont;
+  .res-cont-box {
+    .res-cont-img-cont {
+      @include flex-center-center;
+      .res-cont-img {
+        height: 12rem;
+        width: 15rem;
+      }
+    }
+    .res-box-desc {
+      padding: 0.3rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      &-name {
+        font-family: $boldFont;
+        // margin-right: 1rem;
+      }
+      &-rating {
+        font-family: $primaryFont;
+      }
+    }
+    .res-box-cuisines {
+      padding: 0.3rem 1rem;
+
+      width: auto;
+    }
+    .res-box-cost-cont {
+      padding: 0.3rem 1rem;
+
+      .res-box-cost {
+      }
+      .res-box-order-btn {
+      }
+    }
+  }
+}

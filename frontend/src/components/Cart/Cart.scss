@@ -1,0 +1,30 @@
+@import "../../variables.scss";
+.cart-items {
+  //   overflow-y: scroll;
+  .cart-item {
+    padding: 1rem 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    display: flex;
+    .cart-item-desc {
+      display: flex;
+      &-img {
+        margin-right: 1rem;
+        img {
+          height: 5rem;
+          width: 6rem;
+        }
+      }
+      &-desc {
+        &-name {
+          font-family: $primaryFont;
+          font-weight: bold;
+        }
+        &-btn {
+          display: flex;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}

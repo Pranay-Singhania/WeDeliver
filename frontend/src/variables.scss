@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap");
+@font-face {
+  /* Equity A text - regular */
+  font-family: "bold-stratos";
+  src: url("./assets/fonts/stratosweb-semibold-TRIAL-BF63c604b516433.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-weight: bold;
+}
+@font-face {
+  /* Equity A text - regular */
+  font-family: "stratos";
+  src: url("./assets/fonts/stratosweb-medium-TRIAL-BF63c604b499503.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-weight: bold;
+}
+@font-face {
+  /* Equity A text - regular */
+  font-family: "light-stratos";
+  src: url("./assets/fonts/stratosweb-regular-TRIAL-BF63c604b538bf9.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  //   font-weight: bold;
+}
+@font-face {
+  /* Equity A text - regular */
+  font-family: "lighter-stratos";
+  src: url("./assets/fonts/stratosweb-light-TRIAL-BF63c604b478f74.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  //   font-weight: bold;
+}
+$neon: #00ccbc;
+// $neon: #00a396;
+$diffFont: "Lato", sans-serif;
+$primaryFont: "stratos", sans-serif;
+$boldFont: "bold-stratos", sans-serif;
+$lightFont: "light-stratos", sans-serif;
+$lighterFont: "lighter-stratos", sans-serif;
+
+@mixin stratos {
+  font-family: $primaryFont;
+  font-weight: 600;
+}
+$nav-z-index: 100;
+$heroImg-bg: 0;
+$heroSearch-z-index: 1;
+
+@mixin flex-center-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// .underline-btn::before,
+// .underline-btn::after {
+//   content: "";
+//   position: absolute;
+//   height: 2px;
+//   width: 0;
+//   /* background-color: var(--neon); */
+//   background-color: $neon;
+//   transition: 0.2s ease-in-out;
+// }
+// .underline-btn::before {
+//   right: 0;
+//   top: -4px;
+// }
+// .underline-btn::after {
+//   left: 0;
+//   bottom: -5px;
+//   transform-origin: left;
+// }
+// .underline-btn:hover::before {
+//   width: 100%;
+//   transform-origin: right;
+// }
+// .underline-btn:hover::after {
+//   width: 100%;
+//   transform-origin: right;
+// }

@@ -1,0 +1,44 @@
+@import "../../variables.scss";
+
+.searchLocation {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &-container {
+    position: relative;
+    background-color: white;
+    padding: 0.8rem;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .search-input-container {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      height: 100%;
+      cursor: pointer;
+      &:focus {
+        border: none !important;
+      }
+    }
+    svg {
+      color: $neon;
+    }
+    .left-icon {
+      margin-right: 0.5rem;
+    }
+    .right-icon {
+      margin-left: 0.5rem;
+    }
+    input {
+      border: none !important;
+      width: 20rem;
+      &:focus {
+        border: none !important;
+      }
+    }
+  }
+}

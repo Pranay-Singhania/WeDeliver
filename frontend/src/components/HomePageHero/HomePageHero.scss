@@ -1,0 +1,80 @@
+@import "../../variables.scss";
+
+.hero {
+  width: 100%;
+  &-bg {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    background-color: black;
+    height: auto;
+    top: 0;
+    z-index: $heroImg-bg;
+  }
+  &-img-container {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: hidden;
+  }
+  &-img {
+    position: relative;
+    img {
+      width: 42rem;
+    }
+  }
+  &-right-img {
+    transform: translateX(13.5%);
+  }
+  &-left-img {
+    transform: translateX(-25%);
+  }
+  &-layer {
+    font-family: $primaryFont;
+    // @include stratos;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25rem;
+    // z-index: $heroSearch-z-index;
+
+    color: white;
+    &-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      .heading {
+        width: 60%;
+        font-size: 2.4rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        span {
+          cursor: pointer;
+          color: $neon;
+        }
+      }
+      .search-label {
+        font-family: $lightFont;
+        font-weight: 500;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+      .login-statement {
+        margin-top: 1rem;
+        font-size: 0.8rem;
+        font-family: $lighterFont;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        span {
+          cursor: pointer;
+          color: $neon;
+        }
+      }
+    }
+  }
+}
+.opacityBlur {
+  filter: blur(5px);
+  // overflow: hidden;
+}

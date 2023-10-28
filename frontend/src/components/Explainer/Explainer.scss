@@ -1,0 +1,78 @@
+@import "../../variables.scss";
+
+.explainer {
+  background-color: white;
+  height: 52rem;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  .explainer-container {
+    padding-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .explainer-subSections {
+      display: flex;
+      justify-content: space-between;
+      //   border: 1px solid black;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 -4px 8px 0 rgba(0, 0, 0, 0.1), 4px 0 8px 0 rgba(0, 0, 0, 0.1), -4px 0 8px 0 rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+
+      width: 95%;
+      .explainer-left-subSection {
+        width: 40%;
+        padding: 2rem;
+        font-size: 2.6rem;
+        font-family: $boldFont;
+        p {
+          margin-top: 2rem;
+          font-size: 1.3rem;
+          font-family: $diffFont;
+        }
+      }
+      .explainer-map {
+        // border: 1px solid black;
+        border-radius: 0 10px 10px 0;
+        position: relative;
+        width: 40rem; /* Set your desired width */
+        height: 28rem; /* Set your desired height */
+        background-image: url("https://img2.storyblok.com/filters:format(webp)/f/62776/x/ca59b51c51/map-min.svg");
+        background-position: center center; /* Center the image both horizontally and vertically */
+        background-size: cover; /* Maintain aspect ratio while covering the div */
+        &-msg {
+          font-family: $diffFont;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 -4px 8px 0 rgba(0, 0, 0, 0.1), 4px 0 8px 0 rgba(0, 0, 0, 0.1), -4px 0 8px 0 rgba(0, 0, 0, 0.1);
+          display: flex;
+          flex-direction: column;
+          border-radius: 10px;
+          padding: 0.5rem 1rem 0.5rem 0.8rem;
+          width: 22rem;
+          position: absolute;
+          background-color: white;
+          top: 1.8rem;
+          right: 1.8rem;
+          .firstLine {
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            &-left-h,
+            &-right {
+              color: grey;
+            }
+            &-left,
+            &-right {
+              @include flex-center-center;
+            }
+          }
+          .secondLine {
+            font-size: 0.98rem;
+            font-weight: 900;
+          }
+          div img {
+            width: 2.1rem;
+          }
+        }
+      }
+    }
+  }
+}

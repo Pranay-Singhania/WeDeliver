@@ -1,0 +1,46 @@
+.HomePageHeroFooter {
+  width: 100%;
+  position: absolute;
+  top: 23rem;
+  margin-top: 5rem;
+  background-color: transparent;
+  overflow-x: hidden;
+  white-space: nowrap;
+
+  .first-row-items {
+    width: fit-content;
+    display: inline-block;
+    animation: movingSlider 30s linear infinite;
+  }
+  .second-row-items {
+    width: fit-content;
+    display: inline-block;
+    animation: movingSliderTilted 30s linear infinite;
+  }
+  .row-items {
+    .slider-img {
+      margin: 0.5rem 0.8rem;
+      border-radius: 10px;
+      height: 7.5rem;
+    }
+    @keyframes movingSliderTilted {
+      from {
+        transform: translateX(-10%);
+      }
+      to {
+        transform: translateX(-110%);
+      }
+    }
+    @keyframes movingSlider {
+      from {
+        transform: translateX(0%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+  }
+}
+.lowerSlider {
+  top: 32rem; // Adjust this value to position it below the original slider
+}

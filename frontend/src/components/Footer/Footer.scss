@@ -1,0 +1,30 @@
+footer {
+  position: relative;
+  padding: 10px;
+  display: flex;
+  width: 100%;
+  bottom: 0;
+  /* background-color: rgba(32,32,32); */
+  background-color: rgba(0, 0, 0);
+  color: white;
+  text-align: center;
+  .flexbetween {
+    width: 8%;
+    display: inline-flex;
+    justify-content: space-between;
+  }
+
+  a {
+    font-size: 1.3rem;
+    color: white;
+    text-decoration: none;
+  }
+  ul {
+    margin-bottom: 0;
+    li {
+      padding: 0.3rem;
+      font-size: 15px;
+      list-style: none;
+    }
+  }
+}

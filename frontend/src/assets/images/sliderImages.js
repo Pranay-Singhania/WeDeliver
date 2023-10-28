@@ -1,0 +1,20 @@
+const sliderImages = [
+  "https://img2.storyblok.com/filters:format(webp)/f/62776/512x256/e0988a5a22/curry-wide.jpg",
+  "https://img2.storyblok.com/filters:format(webp)/f/62776/256x256/2295f6ab9e/nandos.jpg",
+  "https://img2.storyblok.com/filters:format(webp)/f/62776/512x256/0ee9c5082d/dessert-wide.jpg",
+  "https://img2.storyblok.com/filters:format(webp)/f/62776/256x256/11bf79a2b4/icon-donut.jpg",
+  "https://img2.storyblok.com/filters:format(webp)/f/62776/256x256/99fc69fd34/wagamama.jpg",
+  "https://img2.storyblok.com/filters:format(webp)/f/62776/256x256/3057c83aef/fiveguys.jpg",
+  "https://img2.storyblok.com/filters:format(webp)/f/62776/512x256/dd8a3a1d71/chicken-wide.jpg",
+  "https://img2.storyblok.com/filters:format(webp)/f/62776/512x256/47c289a9f4/pizza-wide.jpg",
+  "https://img2.storyblok.com/filters:format(webp)/f/62776/256x256/6a385f47c7/icon-vegan.jpg",
+  "https://img2.storyblok.com/filters:format(webp)/f/62776/256x256/5771399806/hop.jpg",
+  "https://img2.storyblok.com/filters:format(webp)/f/62776/512x256/8bd9a1cb99/bowl-wide.jpg",
+  "https://img2.storyblok.com/filters:format(webp)/f/62776/256x256/54ae25d5da/kfc.jpg",
+  "https://img2.storyblok.com/filters:format(webp)/f/62776/512x256/d67ea4ffce/thai-wide.jpg",
+  "https://img2.storyblok.com/filters:format(webp)/f/62776/256x256/4fd0ed75e4/icon-pizza.jpg",
+  "https://img2.storyblok.com/filters:format(webp)/f/62776/256x256/d12ef0972b/waitrose.jpg",
+  "https://img2.storyblok.com/filters:format(webp)/f/62776/256x256/9b19027dd1/icon-wine.jpg",
+  "https://img2.storyblok.com/filters:format(webp)/f/62776/512x256/b07158449c/sushi-wide.jpg",
+];
+export default sliderImages;
