@@ -13,7 +13,7 @@
       }
     }
     .res-box-desc {
-      padding: 0.5rem 1rem 1rem;
+      padding: 0.5rem 1rem 1.5rem;
       width: 100%;
       &-name {
         font-family: $diffFont;
@@ -21,6 +21,7 @@
         // margin-right: 1rem;
       }
       &-rating {
+        margin: 0.2rem 0;
         font-family: $lightFont;
       }
       .res-box-cuisines {
