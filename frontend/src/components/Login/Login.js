@@ -30,10 +30,7 @@ const Login = () => {
 
   const registerUser = async (currentUser) => {
     try {
-      const response = await axios.post(
-        `mongodb+srv://pranays4299:ZqH50ZVpzUqTKgAa@cluster0.t8s5tyf.mongodb.net/?retryWrites=true&w=majority/api/register`,
-        currentUser
-      );
+      const response = await axios.post(`https://wedeliver-pranays-projects-abd5e9c0.vercel.app/api/register`, currentUser);
       const { user, token } = response.data;
       addUserToLocalStorage({ user, token });
       if (user) {
@@ -49,10 +46,7 @@ const Login = () => {
 
   const loginUser = async (currentUser) => {
     try {
-      const response = await axios.post(
-        `mongodb+srv://pranays4299:ZqH50ZVpzUqTKgAa@cluster0.t8s5tyf.mongodb.net/?retryWrites=true&w=majority/api/login`,
-        currentUser
-      );
+      const response = await axios.post(`https://wedeliver-pranays-projects-abd5e9c0.vercel.app/api/login`, currentUser);
       const { user, token } = response.data;
       addUserToLocalStorage({ user, token });
       if (user) {

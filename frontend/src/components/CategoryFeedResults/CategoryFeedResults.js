@@ -12,7 +12,7 @@ const CategoryFeedResults = () => {
 
   const fetchData = async () => {
     // const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.5940947&lng=85.1375645&page_type=DESKTOP_WEB_LISTING");
-    const data = await fetch("mongodb+srv://pranays4299:ZqH50ZVpzUqTKgAa@cluster0.t8s5tyf.mongodb.net/?retryWrites=true&w=majority/api/restaurants");
+    const data = await fetch("https://wedeliver-pranays-projects-abd5e9c0.vercel.app/api/restaurants");
     const json = await data.json();
     // setList(
     //   json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
