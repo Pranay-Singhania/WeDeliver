@@ -30,7 +30,10 @@ const Login = () => {
 
   const registerUser = async (currentUser) => {
     try {
-      const response = await axios.post(`http://localhost:3005/api/register`, currentUser);
+      const response = await axios.post(
+        `mongodb+srv://pranays4299:ZqH50ZVpzUqTKgAa@cluster0.t8s5tyf.mongodb.net/?retryWrites=true&w=majority/api/register`,
+        currentUser
+      );
       const { user, token } = response.data;
       addUserToLocalStorage({ user, token });
       if (user) {
@@ -46,7 +49,10 @@ const Login = () => {
 
   const loginUser = async (currentUser) => {
     try {
-      const response = await axios.post(`http://localhost:3005/api/login`, currentUser);
+      const response = await axios.post(
+        `mongodb+srv://pranays4299:ZqH50ZVpzUqTKgAa@cluster0.t8s5tyf.mongodb.net/?retryWrites=true&w=majority/api/login`,
+        currentUser
+      );
       const { user, token } = response.data;
       addUserToLocalStorage({ user, token });
       if (user) {
