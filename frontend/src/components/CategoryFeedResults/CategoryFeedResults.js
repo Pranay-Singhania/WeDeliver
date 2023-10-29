@@ -4,14 +4,17 @@ import { useSelector } from "react-redux";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
 import { useNavigate, Link } from "react-router-dom";
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
+import useOnlineStatus from "../../utils/useOnlineStatus";
 
 const CategoryFeedResults = () => {
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const navigate = useNavigate();
+  const { isModalVisible } = useSelector((store) => store.modal);
+  const onlineStatus = useOnlineStatus();
+
   const myAddress = useSelector((store) => store.myAddress.data);
 
   const fetchData = async () => {
-    // const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.5940947&lng=85.1375645&page_type=DESKTOP_WEB_LISTING");
     const data = await fetch("https://wedeliver-pranays-projects-abd5e9c0.vercel.app/api/restaurants");
     const json = await data.json();
     // setList(
@@ -27,15 +30,16 @@ const CategoryFeedResults = () => {
     //     json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     // );
     setFilteredRestaurant(json);
-    // console.log(json?.data);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
+  if (onlineStatus == false) return <div>You are offline.</div>;
+
   return (
-    <div className="category-feed-results">
+    <div className={`category-feed-results ${isModalVisible ? "opacityBlur" : ""}`}>
       <div className="categoryfeedlocation">
         {myAddress?.length > 0 ? (
           `Delivering to
@@ -50,14 +54,11 @@ const CategoryFeedResults = () => {
         )}
       </div>
       <div className="home-feed-grid">
-        <div
-          className="restaurant-container"
-          // className="flex flex-col sm:flex-row flex-wrap justify-start gap-[1%] place-items-center relative"
-        >
+        <div className="restaurant-container">
           {filteredRestaurant &&
             filteredRestaurant.map((ele) => {
               return (
-                <Link key={ele.info.id} to={"/restaurants/" + ele.info.id}>
+                <Link key={ele.info.id} to={"/restaurants/" + ele.info.id} className="restaurants-map">
                   <RestaurantCard resData={ele} />
                 </Link>
               );

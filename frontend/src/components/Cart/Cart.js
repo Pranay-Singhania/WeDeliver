@@ -5,7 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearItem, removeItem, deductItemPrice, sumItemPrice, increaseQuantity, decreaseQuantity } from "../../store/CartSlice";
 import DeleteIcon from "@mui/icons-material/Delete";
 // import Card from "./Card";
-
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 const Cart = () => {
   const CartItems = useSelector((store) => store.cart.items);
   const CartSum = useSelector((store) => store.cart.sum);
@@ -57,24 +58,24 @@ const Cart = () => {
                   <div className="cart-item-desc-desc-price">₹ {defaultPrice / 100 || price / 100}</div>
                   <div className="cart-item-desc-desc-btn">
                     <span
-                      className=""
+                      className="modify-same-item item-mod-btns"
                       onClick={() => {
                         decreaseCount(name, defaultPrice / 100 || price / 100);
                       }}>
-                      -
+                      <RemoveIcon />
                     </span>
-                    <div className="">{quantity}</div>
+                    <div className="item-mod-btns">{quantity}</div>
                     <span
-                      className=""
+                      className="modify-same-item item-mod-btns"
                       onClick={() => {
                         increaseCount(name, defaultPrice / 100 || price / 100);
                       }}>
-                      +
+                      <AddIcon />
                     </span>
                   </div>
                   <button
                     onClick={() => handleDltItem(item.name, (item.defaultPrice / 100) * quantity || (item.price / 100) * quantity)}
-                    className="">
+                    className="deleteBtn">
                     <DeleteIcon />
                   </button>
                 </div>

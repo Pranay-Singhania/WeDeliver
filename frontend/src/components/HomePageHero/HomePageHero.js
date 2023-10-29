@@ -5,6 +5,7 @@ import HomePageHeroFooter from "../HomePageHeroFooter/HomePageHeroFooter";
 import Login from "../Login/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { setIsModalVisible } from "../../store/ModalSlice";
+import { burger, groceryBag } from "../../assets/images/expImages";
 
 const HomePageHero = () => {
   const dispatch = useDispatch();
@@ -16,10 +17,10 @@ const HomePageHero = () => {
         <div className="hero-bg">
           <div className="hero-img-container">
             <div className="hero-left-img hero-img">
-              <img src="http://img2.storyblok.com/filters:format(webp)/f/62776/860x642/4e0f98735d/grocery-bag.jpg" alt="" />
+              <img src={groceryBag} alt="" loading="lazy" />
             </div>
             <div className="hero-right-img hero-img">
-              <img src="http://img2.storyblok.com/filters:format(webp)/f/62776/860x642/eaf9ed1e62/burger.jpg" alt="" />
+              <img src={burger} alt="" loading="lazy" />
             </div>
           </div>
         </div>

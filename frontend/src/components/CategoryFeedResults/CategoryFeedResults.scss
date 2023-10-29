@@ -5,6 +5,7 @@
   flex-direction: column;
   padding: 2.4rem 5rem;
   .categoryfeedlocation {
+    margin-left: 4rem;
     font-size: 1.5rem;
     font-family: $boldFont;
     .setAddressBtn {
@@ -14,15 +15,25 @@
     }
   }
   .home-feed-grid {
-    margin-top: 2rem;
+    margin-top: 1rem;
     .restaurant-container {
-      display: flex;
+      @include flex-center-center;
       flex-direction: row;
       flex-wrap: wrap;
       .restaurants-map {
-        margin: 0.5rem;
+        color: black;
+        text-decoration: none;
+        width: 13rem;
+        height: auto;
+        margin: 1.2rem;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 -4px 8px 0 rgba(0, 0, 0, 0.05), 4px 0 8px 0 rgba(0, 0, 0, 0.05),
+          -4px 0 8px 0 rgba(0, 0, 0, 0.05);
+
         border: 1px solid #ececec;
       }
     }
   }
+}
+.opacityBlur {
+  filter: blur(5px);
 }

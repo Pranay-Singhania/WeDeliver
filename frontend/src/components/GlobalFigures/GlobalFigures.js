@@ -20,7 +20,7 @@ const GlobalFigures = () => {
             <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
               <div className="statCounter-subSections">
                 <div className="statCounter-header">
-                  <img src={globalImg} alt="" />
+                  <img src={globalImg} alt="" loading="lazy" />
                   <div className="countUp">{counterOn && <CountUp start={0} end={170000} duration={5} delay={0} />}+</div>
                   Partners globally
                 </div>
@@ -30,7 +30,7 @@ const GlobalFigures = () => {
                   App downloads
                 </div>
                 <div className="statCounter-header">
-                  <img src={riderImg} alt="" />
+                  <img src={riderImg} alt="" loading="lazy" />
                   <div className="countUp">{counterOn && <CountUp start={0} end={180000} duration={5} delay={0} />}+</div>
                   Riders globally
                 </div>

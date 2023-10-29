@@ -1,6 +1,5 @@
 @import "../../variables.scss";
 .cart-items {
-  //   overflow-y: scroll;
   .cart-item {
     padding: 1rem 0;
     border-top: 1px solid black;
@@ -23,6 +22,29 @@
         &-btn {
           display: flex;
           margin-bottom: 1rem;
+          margin-right: 0.5rem;
+          .item-mod-btns {
+            margin: 0.5rem 0.5rem 0 0;
+          }
+          .modify-same-item {
+            border-radius: 2rem;
+            height: 1.5rem;
+            width: 1.5rem;
+            background-color: #f2f2f2;
+            @include flex-center-center;
+            svg {
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+      .deleteBtn {
+        border: 1px solid #e2e2e2;
+        background-color: #ffcccb;
+        @include flex-center-center;
+        padding: 0.5rem;
+        svg {
+          font-size: 1rem;
         }
       }
     }

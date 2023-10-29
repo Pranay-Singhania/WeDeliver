@@ -32,7 +32,7 @@ const RestaurantModal = () => {
     resInfo?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
   console.log("menu", menu);
   // Slick slider settings
-  if (onlineStatus === false) return <div>"Something is wrong"</div>;
+  if (onlineStatus === false) return <div>You are offline.</div>;
   return (
     <>
       <CategoryNav />
@@ -87,7 +87,7 @@ const RestaurantModal = () => {
                   return (
                     itemCards && (
                       <>
-                        <h4 style={{ fontWeight: "bold" }}>{title}</h4>
+                        <h5 style={{ fontWeight: "bold" }}>{title}</h5>
                         <div className="grid-2col" key={index}>
                           {itemCards &&
                             itemCards.map((item) => {

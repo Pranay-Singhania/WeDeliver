@@ -13,21 +13,19 @@ const RestaurantCard = ({ resData }) => {
             src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,c_fill/" + cloudinaryImageId}
             className="res-cont-img"
             alt="heyeyy"
+            loading="lazy"
           />
         </div>
         <div className="res-box-desc">
-          <div className="res-box-desc-name">{name.length > 17 ? name.slice(0, 17) + "..." : name}</div>
+          <div className="res-box-desc-name">{name.length > 20 ? name.slice(0, 20) + "..." : name}</div>
           <div className="res-box-desc-rating">
             {avgRating}
             <span>⭐</span>
+            <span className="fontStyleLighter"> • </span>
+            <span className="res-box-cost">{costForTwo}</span>
           </div>
+          <div className="res-box-cuisines">{cuisinesNew.length > 20 ? cuisinesNew.slice(0, 20) + "..." : cuisinesNew}</div>
         </div>
-        <div className="res-box-cuisines">{cuisinesNew.length > 28 ? cuisinesNew.slice(0, 28) + "..." : cuisinesNew}</div>
-      </div>
-
-      <div className="res-box-cost-cont">
-        <span className="res-box-cost">{costForTwo}</span>
-        <button className="res-box-order-btn">Order Now</button>
       </div>
     </div>
   );

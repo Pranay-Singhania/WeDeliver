@@ -19,7 +19,7 @@ const Explainer = () => {
                 <div className="firstLine">
                   <div className="firstLine-left">
                     <div>
-                      <img src={appLogo} alt="" />
+                      <img src={appLogo} alt="" loading="lazy" />
                     </div>
                     <div className="firstLine-left-h">WEDELIVER</div>
                   </div>

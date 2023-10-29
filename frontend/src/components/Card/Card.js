@@ -5,7 +5,7 @@ const Card = ({ name, img, category, price }) => {
     <div className="card-section">
       <div className="card-category-name">{category}</div>
       <div className="card-img">
-        <img src={img} alt="" />
+        <img src={img} alt="" loading="lazy" />
       </div>
       <div>{name}</div>
       <div>{price}</div>
