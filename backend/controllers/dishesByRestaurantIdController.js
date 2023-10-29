@@ -5,8 +5,8 @@ const getDishesByRestaurantId = async (req, res) => {
     const { restaurantId } = req.params;
     console.log("restaurantId:", restaurantId);
     console.log("Attempting to find restaurants...");
-    // const results = await DishesByRestaurantIdModel.findOne({ "data.cards.card.card.info.feeDetails.restaurantId": restaurantId });
-    const results = await DishesByRestaurantIdModel.findOne({});
+    const results = await DishesByRestaurantIdModel.findOne({ "data.cards.card.card.info.feeDetails.restaurantId": restaurantId });
+    // const results = await DishesByRestaurantIdModel.findOne({});
     // console.log(results?.data?.cards[0]?.card?.card?.[info]);
     return res.status(200).send(results);
   } catch (error) {

@@ -11,7 +11,8 @@ const useRestaurantMenu = (resId) => {
   const fetchMenu = async () => {
     try {
       const resp = await axios.get(
-        `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.5940947&lng=85.1375645&restaurantId=${resId}`
+        `mongodb+srv://pranays4299:ZqH50ZVpzUqTKgAa@cluster0.t8s5tyf.mongodb.net/?retryWrites=true&w=majority/api/restaurants/${resId}`
+        // `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.5940947&lng=85.1375645&restaurantId=${resId}`
       );
       setResInfo(resp.data.data);
       console.log("respdata", resp.data.data);
