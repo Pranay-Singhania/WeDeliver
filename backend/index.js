@@ -1,3 +1,6 @@
+require("dotenv").config();
+import dotenv from "dotenv";
+dotenv.config({ path: "./.env" });
 const express = require("express");
 const { default: mongoose } = require("mongoose");
 const cors = require("cors");
@@ -9,6 +12,7 @@ const dishes = require("./routes/dishRoutes");
 const userRoutes = require("./routes/userRoutes");
 const restaurants = require("./routes/restaurantRoutes");
 const dishesByRestaurantId = require("./routes/dishesByRestaurantIdRoutes");
+const adminRoutes = require("./routes/dishesByRestaurantIdRoutes");
 
 app.use(express.json());
 
@@ -27,6 +31,7 @@ app.use("/api", dishes);
 app.use("/api", userRoutes);
 app.use("/api", restaurants);
 app.use("/api", dishesByRestaurantId);
+app.use("/api", adminRoutes);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

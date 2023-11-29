@@ -5,6 +5,7 @@ import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import { Provider } from "react-redux";
 import store from "./store/Store";
 import RestaurantModal from "./components/RestaurantModal/RestaurantModal";
+import Admin from "./pages/AdminPage/Admin.js";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element=<HomePage /> />
             <Route path="/restaurants" element=<CategoryPage /> />
             <Route path="/restaurants/:resId" element=<RestaurantModal /> />
+            <Route path="/super_admin" element=<Admin /> />
           </Routes>
         </BrowserRouter>
       </Provider>
