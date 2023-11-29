@@ -12,7 +12,7 @@ const dishes = require("./routes/dishRoutes");
 const userRoutes = require("./routes/userRoutes");
 const restaurants = require("./routes/restaurantRoutes");
 const dishesByRestaurantId = require("./routes/dishesByRestaurantIdRoutes");
-const adminRoutes = require("./routes/dishesByRestaurantIdRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 app.use(express.json());
 
