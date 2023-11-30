@@ -6,7 +6,7 @@ const express = require("express");
 const { default: mongoose } = require("mongoose");
 const cors = require("cors");
 const app = express();
-const port = 3005;
+const port = process.env.PORT;
 
 app.use(cors());
 const dishes = require("./routes/dishRoutes");
@@ -18,7 +18,7 @@ const adminRoutes = require("./routes/adminRoutes");
 app.use(express.json());
 
 mongoose
-  .connect("mongodb+srv://pranays4299:ZqH50ZVpzUqTKgAa@cluster0.t8s5tyf.mongodb.net/?retryWrites=true&w=majority")
+  .connect(process.env.MONGODB_URL)
   .then(() => console.log("mongo connected"))
   .catch((err) => console.log(err));
 console.log("Connected to MongoDB");

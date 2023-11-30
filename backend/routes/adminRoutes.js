@@ -9,7 +9,7 @@ router.use("/addRestaurant", (req, res, next) => {
   console.log("POST /api/addRestaurant endpoint is hit.");
   next(); // Move to the next middleware or route handler
 });
-router.post("/addRestaurant", upload.single("restaurantImg"), addRestaurant);
+router.post("/admin/addRestaurant", upload.fields([{ name: "restaurantImg", maxCount: 1 }]), addRestaurant);
 // router.post("/updateRestaurant", updateRestaurant);
 // router.post("/deleteRestaurant", deleteRestaurant);
 // router.post("/addProduct", addDish);

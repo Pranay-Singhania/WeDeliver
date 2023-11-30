@@ -25,18 +25,19 @@ const addRestaurant = async (req, res) => {
     if ([restaurantName, locality, areaName, costForTwo, cuisines].some((field) => field?.trim() === ""))
       return res.status(400).send("All fields are required");
 
+    console.log("restaurantId:", restaurantId, "restaurantName", restaurantName);
     const existedRestaurant = await RestaurantsModel.findOne({
-      $or: [{ restaurantId }, { restaurantName }],
+      $or: [{ "info.feeDetails.restaurantId": restaurantId }, { "info.name": restaurantName }],
     });
     if (existedRestaurant) return res.status(409).send("RestaurantID or Restaurant Name already exists");
 
-    const restaurantImgLocalPath = req.files?.restaurantImg?.path;
+    const restaurantImgLocalPath = req.files?.restaurantImg[0]?.path;
     if (!restaurantImgLocalPath) return res.status(400).send("restaurantImg is required");
 
     const restaurantImg = await uploadOnCloudinary(restaurantImgLocalPath);
 
     if (!restaurantImg) return res.status(400).send("restaurantImg is required, restaurantImg upload failed");
-    const newRestaurant = RestaurantsModel.create({
+    const newRestaurant = await RestaurantsModel.create({
       info: {
         id: restaurantId,
         name: restaurantName,
@@ -52,6 +53,7 @@ const addRestaurant = async (req, res) => {
       },
     });
     if (!newRestaurant) return res.status(500).send("Failed to create restaurant");
+    console.log(newRestaurant);
     const createdRestaurant = await RestaurantsModel.findById(newRestaurant._id);
 
     if (!createdRestaurant) return res.status(500).send("Something went wrong while registering the user,Failed to fetch created restaurant");
@@ -61,34 +63,5 @@ const addRestaurant = async (req, res) => {
     console.error("Error adding restaurant:", error);
     return res.status(500).send({ error: "Internal server error" });
   }
-  //   try {
-  //     console.log("Attempting to add restaurant...");
-  //     // Generate a random 5-digit ID
-  //     const restaurantId = getRandomId();
-  //     // Example data for a new restaurant
-  //     const newRestaurant = {
-  //       info: {
-  //         id: restaurantId,
-  //         name: req.body.name,
-  //         cloudinaryImageId: req.body.cloudinaryImageId,
-  //         locality: req.body.locality,
-  //         areaName: req.body.areaName,
-  //         costForTwo: req.body.costForTwo,
-  //         cuisines: req.body.cuisines,
-  //         avgRating: req.body.avgRating,
-  //         feeDetails: {
-  //           restaurantId: restaurantId,
-  //         },
-  //         // Include other properties from req.body as needed
-  //       },
-  //     };
-  //     const restaurantInstance = new RestaurantsModel(newRestaurant);
-  //     await restaurantInstance.save();
-  //     console.log("Restaurant added successfully!");
-  //     return res.status(200).send({ message: "Restaurant added successfully!" });
-  //   } catch (error) {
-  //     console.error("Error adding restaurant:", error);
-  //     return res.status(500).send({ error: "Internal server error" });
-  //   }
 };
 module.exports = { addRestaurant };
