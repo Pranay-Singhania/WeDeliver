@@ -17,46 +17,50 @@ const addRestaurant = async (req, res) => {
   //  remove password and refresh token field from response
   //  check for restaurant creation
   //  return response
+  try {
+    const { restaurantName, locality, areaName, costForTwo, cuisines, avgRating } = req.body;
+    const restaurantId = getRandomId();
+    console.log("restaurantName:", restaurantName);
 
-  const { restaurantName, locality, areaName, costForTwo, cuisines, avgRating } = req.body;
-  const restaurantId = getRandomId();
-  console.log("restaurantName:", restaurantName);
+    if ([restaurantName, locality, areaName, costForTwo, cuisines].some((field) => field?.trim() === ""))
+      return res.status(400).send("All fields are required");
 
-  if ([restaurantName, locality, areaName, costForTwo, cuisines].some((field) => field?.trim() === ""))
-    return res.status(400).send("All fields are required");
+    const existedRestaurant = await RestaurantsModel.findOne({
+      $or: [{ restaurantId }, { restaurantName }],
+    });
+    if (existedRestaurant) return res.status(409).send("RestaurantID or Restaurant Name already exists");
 
-  const existedRestaurant = await RestaurantsModel.findOne({
-    $or: [{ restaurantId }, { restaurantName }],
-  });
-  if (existedRestaurant) return res.status(409).send("RestaurantID or Restaurant Name already exists");
+    const restaurantImgLocalPath = req.files?.restaurantImg?.path;
+    if (!restaurantImgLocalPath) return res.status(400).send("restaurantImg is required");
 
-  const restaurantImgLocalPath = req.files?.restaurantImg?.path;
-  if (!restaurantImgLocalPath) return res.status(400).send("restaurantImg is required");
+    const restaurantImg = await uploadOnCloudinary(restaurantImgLocalPath);
 
-  const restaurantImg = await uploadOnCloudinary(restaurantImgLocalPath);
-
-  if (!restaurantImg) return res.status(400).send("restaurantImg is required");
-  const newRestaurant = RestaurantsModel.create({
-    info: {
-      id: restaurantId,
-      name: restaurantName,
-      cloudinaryImageId: restaurantImg,
-      locality: locality,
-      areaName: areaName,
-      costForTwo: costForTwo,
-      cuisines: cuisines,
-      avgRating: avgRating,
-      feeDetails: {
-        restaurantId: restaurantId,
+    if (!restaurantImg) return res.status(400).send("restaurantImg is required, restaurantImg upload failed");
+    const newRestaurant = RestaurantsModel.create({
+      info: {
+        id: restaurantId,
+        name: restaurantName,
+        cloudinaryImageId: restaurantImg,
+        locality: locality,
+        areaName: areaName,
+        costForTwo: costForTwo,
+        cuisines: cuisines,
+        avgRating: avgRating,
+        feeDetails: {
+          restaurantId: restaurantId,
+        },
       },
-    },
-  });
-  const createdRestaurant = await RestaurantsModel.findById(newRestaurant._id);
+    });
+    if (!newRestaurant) return res.status(500).send("Failed to create restaurant");
+    const createdRestaurant = await RestaurantsModel.findById(newRestaurant._id);
 
-  if (!createdRestaurant) return res.status(500).send("Something went wrong while registering the user");
+    if (!createdRestaurant) return res.status(500).send("Something went wrong while registering the user,Failed to fetch created restaurant");
 
-  return res.status(201).json({ createdRestaurant });
-
+    return res.status(201).json({ createdRestaurant });
+  } catch (error) {
+    console.error("Error adding restaurant:", error);
+    return res.status(500).send({ error: "Internal server error" });
+  }
   //   try {
   //     console.log("Attempting to add restaurant...");
   //     // Generate a random 5-digit ID
