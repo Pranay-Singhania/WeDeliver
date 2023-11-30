@@ -1,5 +1,6 @@
-require("dotenv").config();
-import dotenv from "dotenv";
+const dotenv = require("dotenv");
+// require("dotenv").config();
+
 dotenv.config({ path: "./.env" });
 const express = require("express");
 const { default: mongoose } = require("mongoose");

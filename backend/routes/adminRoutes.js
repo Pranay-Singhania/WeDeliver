@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
-import { upload } from "../middlewares/multer.middleware.js";
+const { upload } = require("../middlewares/multer.middleware.js");
 
 const { addRestaurant } = require("../controllers/adminController/adminRestaurantController.js");
 // const { addDish, updateDish, deleteDish } = require("../controllers/adminController/adminProductController.js");

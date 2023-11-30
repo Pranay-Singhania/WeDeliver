@@ -1,5 +1,6 @@
 const RestaurantsModel = require("../models/Restaurants");
-import { uploadOnCloudinary } from "../../utils/cloudinary";
+
+const { uploadOnCloudinary } = require("../../utils/cloudinary");
 
 const getRandomId = () => {
   // Generate a random 5-digit ID
