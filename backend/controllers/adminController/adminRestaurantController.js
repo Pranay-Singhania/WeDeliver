@@ -1,4 +1,4 @@
-const RestaurantsModel = require("../models/Restaurants");
+const RestaurantsModel = require("../../models/Restaurants");
 
 const { uploadOnCloudinary } = require("../../utils/cloudinary");
 

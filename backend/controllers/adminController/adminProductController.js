@@ -1,4 +1,4 @@
-const DishesByRestaurantIdModel = require("../models/DishesByRestaurantId");
+const DishesByRestaurantIdModel = require("../../models/DishesByRestaurantId");
 
 const addDish = async (req, res) => {
   try {
