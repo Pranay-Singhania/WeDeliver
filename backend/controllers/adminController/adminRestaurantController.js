@@ -64,4 +64,22 @@ const addRestaurant = async (req, res) => {
     return res.status(500).send({ error: "Internal server error" });
   }
 };
-module.exports = { addRestaurant };
+
+const deleteRestaurant = async (req, res) => {
+  try {
+    console.log(req.params.id);
+    const restaurantToDelete = await RestaurantsModel.findOne({ "info.feeDetails.restaurantId": req.params.id });
+    if (restaurantToDelete) {
+      await RestaurantsModel.deleteOne({ "info.feeDetails.restaurantId": req.params.id });
+      res.status(200).send("Restaurant Deleted");
+    } else {
+      res.status(404).send("Restaurant not found");
+    }
+  } catch (error) {
+    res.status(500).send({
+      success: false,
+      message: "Error in Deleting Restaurant ",
+    });
+  }
+};
+module.exports = { addRestaurant, deleteRestaurant };

@@ -12,8 +12,9 @@ const RestaurantCard = ({ resData }) => {
           <img
             src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,c_fill/" + cloudinaryImageId}
             className="res-cont-img"
-            alt="heyeyy"
+            alt="RestaurantPhoto"
             loading="lazy"
+            onError={(e) => (e.target.src = "http://res.cloudinary.com/wedeliver/image/upload/fl_lossy,f_auto,q_auto,c_fill/" + cloudinaryImageId)}
           />
         </div>
         <div className="res-box-desc">

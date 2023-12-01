@@ -3,9 +3,13 @@ const dotenv = require("dotenv");
 
 dotenv.config({ path: "./.env" });
 const express = require("express");
+const bodyParser = require("body-parser");
 const { default: mongoose } = require("mongoose");
 const cors = require("cors");
 const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 const port = process.env.PORT;
 
 app.use(cors());

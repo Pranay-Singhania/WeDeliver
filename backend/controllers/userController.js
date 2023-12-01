@@ -5,6 +5,8 @@ const jwt = require("jsonwebtoken");
 const registerUser = async (req, res) => {
   const { name, email, password, cnf_password } = req.body;
 
+  console.log(req.body);
+
   if (password !== cnf_password) {
     return res.status(500).send("The two passwords don't match");
   }
@@ -14,6 +16,7 @@ const registerUser = async (req, res) => {
   if (!user) {
     // Hash password using bcrypt module
     const salt = await bcrypt.genSalt(10);
+    console.log("password:", password, ", salt:", salt);
     const hashPassword = await bcrypt.hash(password, salt);
 
     const newUser = new UserModel({
@@ -25,7 +28,7 @@ const registerUser = async (req, res) => {
     const savedUser = newUser.save();
     // create payload then Generate an access token
 
-    const token = jwt.sign({ userId: savedUser._id }, "randomsecret");
+    const token = jwt.sign({ userId: savedUser._id }, process.env.JWT_SECRET);
     return res.status(200).json({
       user: newUser,
       token: token,
@@ -37,7 +40,7 @@ const registerUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
-
+  console.log(email, password);
   const user = await UserModel.findOne({ email: email });
 
   if (!user) {
