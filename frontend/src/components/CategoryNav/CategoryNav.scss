@@ -14,6 +14,7 @@
     top: 0;
     z-index: 100;
     .logo-container {
+      cursor: pointer;
       display: flex;
       flex-direction: row;
       .nav-logo {

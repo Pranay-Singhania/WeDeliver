@@ -18,6 +18,20 @@ const Login = () => {
   const dispatch = useDispatch();
   const [isMember, setIsMember] = useState(true);
 
+  const onPressEnter = (event) => {
+    if (event.key === "Enter") {
+      // Perform the action you want on Enter key press
+      const { name, email, password, cnf_password } = values;
+      console.log(name);
+      const currentUser = { name, email, password, cnf_password };
+      if (isMember) {
+        loginUser(currentUser);
+      } else {
+        registerUser(currentUser);
+      }
+    }
+  };
+
   const onHandleChange = (e) => {
     console.log(e);
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -84,9 +98,11 @@ const Login = () => {
         <div className="login-title">{!isMember ? "Sign Up" : "Sign In"} </div>
         <form onSubmit={onSubmit}>
           {error && <div style={{ color: "red" }}>{error}</div>}
-          {isMember && <input type="text" placeholder="Username" value={values.name} name="name" onChange={onHandleChange} />}
-          <input type="email" placeholder="Email" value={values.email} name="email" onChange={onHandleChange} />
-          <input type="password" placeholder="Password" name="password" value={values.password} onChange={onHandleChange} />
+          {!isMember && (
+            <input type="text" placeholder="Username" value={values.name} name="name" onChange={onHandleChange} onKeyDown={onPressEnter} />
+          )}
+          <input type="email" placeholder="Email" value={values.email} name="email" onChange={onHandleChange} onKeyDown={onPressEnter} />
+          <input type="password" placeholder="Password" name="password" value={values.password} onChange={onHandleChange} onKeyDown={onPressEnter} />
           {!isMember && (
             <input
               type="password"
@@ -95,6 +111,7 @@ const Login = () => {
               required
               value={values.cnf_password}
               onChange={onHandleChange}
+              onKeyDown={onPressEnter}
             />
           )}
           <button>{!isMember ? "Sign Up" : "Sign in"}</button>

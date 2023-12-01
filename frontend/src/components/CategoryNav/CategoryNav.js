@@ -7,9 +7,11 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useDispatch, useSelector } from "react-redux";
 import { setIsModalVisible } from "../../store/ModalSlice";
 import Login from "../Login/Login";
+import { useNavigate } from "react-router-dom";
 
 const CategoryNav = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { isModalVisible } = useSelector((store) => store.modal);
 
   return (
@@ -17,7 +19,7 @@ const CategoryNav = () => {
       {isModalVisible && <Login />}
       <div className={`category-nav ${isModalVisible ? "opacityBlur" : ""}`}>
         <div className="category-nav-container">
-          <div className="logo-container">
+          <div className="logo-container" onClick={() => navigate("/restaurants")}>
             <div>
               <img src={appLogo} className="nav-logo" />
             </div>

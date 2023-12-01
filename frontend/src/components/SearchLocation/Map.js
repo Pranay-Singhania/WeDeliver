@@ -17,7 +17,7 @@ export default function Map(props) {
     // Check if the pressed key is the "Enter" key
     if (e.key === "Enter" || e.keyCode === 13) {
       // Trigger a click event on the element
-      navigate("./CategoryPage");
+      navigate("/restaurants");
     }
   });
   function handlePlacesChanged() {
