@@ -34,9 +34,11 @@ const addRestaurant = async (req, res) => {
     const restaurantImgLocalPath = req.files?.restaurantImg[0]?.path;
     if (!restaurantImgLocalPath) return res.status(400).send("restaurantImg is required");
 
-    const restaurantImg = await uploadOnCloudinary(restaurantImgLocalPath);
+    let restaurantImg = await uploadOnCloudinary(restaurantImgLocalPath);
 
     if (!restaurantImg) return res.status(400).send("restaurantImg is required, restaurantImg upload failed");
+    else restaurantImg = restaurantImg.match(/upload\/(v\d+\/[a-zA-Z0-9]+)\.jpg/)[1];
+    console.log("restaurantImg:", restaurantImg);
     const newRestaurant = await RestaurantsModel.create({
       info: {
         id: restaurantId,
