@@ -1,7 +1,5 @@
 # Wedeliver  
   
-<img width="948" alt="Screenshot 2023-12-01 074210" src="https://github.com/Pranay-Singhania/WeDeliver/assets/53472824/8a2e8cc3-9c5c-44dc-b9ff-dea503cb548d">
-  
 ## Technologies Used :  
 1. ReactJS  
 2. NodeJS  
@@ -10,7 +8,9 @@
 5. Multer  
 6. Cloudinary  
 7. Bcrypt  
-
+  
+<img width="948" alt="Screenshot 2023-12-01 074210" src="https://github.com/Pranay-Singhania/WeDeliver/assets/53472824/8a2e8cc3-9c5c-44dc-b9ff-dea503cb548d">
+  
 ## A **Food Delivery App** with features like -  
 1. Implemented **SignIn/SignUp** feature and hashing the credentials using bcrypt.  
 2. Used **live Swiggy JSON** format to display the content.  
