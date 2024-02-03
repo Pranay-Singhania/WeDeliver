@@ -3,6 +3,7 @@ const router = express.Router();
 const upload = require("../middlewares/multer.middleware.js");
 
 const { addRestaurant, deleteRestaurant } = require("../controllers/adminController/adminRestaurantController.js");
+const { addDish } = require("../controllers/adminController/adminDishController.js");
 // const { addDish, updateDish, deleteDish } = require("../controllers/adminController/adminProductController.js");
 // const { addUser, updateUser, deleteUser } = require("../controllers/adminController/adminUserController.js");
 
@@ -16,8 +17,9 @@ router.use("/admin/deleteRestaurant/:id", (req, res, next) => {
 });
 
 router.post("/admin/addRestaurant", upload.fields([{ name: "restaurantImg", maxCount: 1 }]), addRestaurant);
-// router.post("/updateRestaurant", updateRestaurant);
 router.delete("/admin/deleteRestaurant/:id", deleteRestaurant);
+router.post("/admin/addDish/:id", upload.fields([{ name: "dishImg", maxCount: 1 }]), addDish);
+// router.post("/updateRestaurant", updateRestaurant);
 // router.post("/addProduct", addDish);
 // router.post("/updateProduct", updateDish);
 // router.post("/deleteProduct", deleteDish);

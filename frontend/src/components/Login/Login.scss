@@ -26,6 +26,10 @@
     form {
       display: flex;
       flex-direction: column;
+      .errorText {
+        font-weight: 500;
+        color: red;
+      }
       input {
         color: white;
         background-color: #333;
@@ -34,6 +38,9 @@
         font-family: $primaryFont;
         color: white;
         background-color: $neon;
+        .spinner {
+          @include flex-center-center;
+        }
       }
       input,
       button {

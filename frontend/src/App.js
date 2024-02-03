@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import store from "./store/Store";
 import RestaurantModal from "./components/RestaurantModal/RestaurantModal";
 import Admin from "./pages/AdminPage/Admin.js";
+import AuthenticatedRoute from "./components/AuthenticatedRoute/AuthenticatedRoute.js";
 
 function App() {
   return (
@@ -13,10 +14,31 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element=<HomePage /> />
-            <Route path="/restaurants" element=<CategoryPage /> />
-            <Route path="/restaurants/:resId" element=<RestaurantModal /> />
-            <Route path="/super_admin" element=<Admin /> />
+            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/restaurants/*"
+              element={
+                <AuthenticatedRoute>
+                  <CategoryPage />
+                </AuthenticatedRoute>
+              }
+            />
+            <Route
+              path="/restaurants/:resId"
+              element={
+                <AuthenticatedRoute>
+                  <RestaurantModal />
+                </AuthenticatedRoute>
+              }
+            />
+            <Route
+              path="/super_admin"
+              element={
+                <AuthenticatedRoute>
+                  <Admin />
+                </AuthenticatedRoute>
+              }
+            />
           </Routes>
         </BrowserRouter>
       </Provider>

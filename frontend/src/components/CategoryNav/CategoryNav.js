@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./CategoryNav.scss";
 import appLogo from "../../assets/images/appLogo.png";
 import SearchIcon from "@mui/icons-material/Search";
@@ -8,11 +8,36 @@ import { useDispatch, useSelector } from "react-redux";
 import { setIsModalVisible } from "../../store/ModalSlice";
 import Login from "../Login/Login";
 import { useNavigate } from "react-router-dom";
+import LogoutIcon from "@mui/icons-material/Logout";
+import DropDownList from "../DropDownList/DropDownList";
+import { logout } from "../../store/AuthSlice";
 
 const CategoryNav = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const focusProfile = useRef(null);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
   const { isModalVisible } = useSelector((store) => store.modal);
+  const userName = useSelector((store) => store.auth.userName);
+
+  const toggleDropDown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
+
+  const logoutHandler = () => {
+    navigate("/");
+    dispatch(logout());
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (focusProfile.current && !focusProfile.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, [isDropdownOpen]);
 
   return (
     <>
@@ -33,18 +58,15 @@ const CategoryNav = () => {
               <input type="text" placeholder="Restaurants, dishes" />
             </div>
           </div>
-          <div className="button-container">
-            <div className="login-container" onClick={() => dispatch(setIsModalVisible(true))}>
-              <div className="login-container-icon">
+          <div className="button-container" ref={focusProfile}>
+            <div className="profile-container" onClick={toggleDropDown}>
+              <div className="profile-container-icon">
                 <PermIdentityIcon />
               </div>
-              <div>Sign up or Login</div>
+              <div>{userName}</div>
             </div>
-            <div className="cart-container">
-              <div className="cart-container-icon">
-                <ShoppingCartIcon />
-              </div>
-              <div>Cart</div>
+            <div className="dropdown">
+              {isDropdownOpen ? <DropDownList options={[{ name: "logout", comp: <LogoutIcon />, func: logoutHandler }]} /> : null}
             </div>
           </div>
         </div>

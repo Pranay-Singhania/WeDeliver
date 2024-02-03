@@ -178,7 +178,7 @@ const dishesByRestaurantIdSchema = new mongoose.Schema({
         card: {
           card: {
             "@type": String,
-            info: infoSchema,
+            info: itemCardSchema,
             // {
             //   id: String,
             //   name: String,
@@ -253,7 +253,7 @@ const dishesByRestaurantIdSchema = new mongoose.Schema({
         groupedCard: {
           cardGroupMap: {
             REGULAR: {
-              cards: [itemCardSchema],
+              cards: [infoSchema],
               menuVegFilterAndBadge: {
                 isPureVeg: Boolean,
                 badges: {},
